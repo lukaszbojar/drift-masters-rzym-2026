@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
@@ -7,140 +7,302 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Rzym 2026">
-<meta name="theme-color" content="#080a0f">
+<meta name="theme-color" content="#080a0f" id="theme-color-meta">
 <title>Drift Masters GP 2026 — Kontakty</title>
 <link rel="manifest" id="manifest-link">
 <link rel="apple-touch-icon" id="apple-icon">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#080a0f;--surface:#0f1118;--surface2:#161a24;
-  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
-  --text:#e8eaf0;--muted:#636880;--accent:#d4a843;
-  --it:#e8622a;--pl:#4a8fd6;--green:#3dba7a;--red:#e05555;
-  --safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
+/* ── DARK THEME (default) ── */
+:root, [data-theme="dark"] {
+  --bg:#080a0f;
+  --bg2:#0f1118;
+  --surface:#0f1118;
+  --surface2:#161a24;
+  --surface3:#1d2230;
+  --border:rgba(255,255,255,0.08);
+  --border2:rgba(255,255,255,0.14);
+  --text:#e8eaf0;
+  --text2:#b0b4c4;
+  --muted:#636880;
+  --accent:#d4a843;
+  --accent-text:#000;
+  --it:#e8622a;
+  --pl:#4a8fd6;
+  --green:#3dba7a;
+  --red:#e05555;
+  --nav-bg:rgba(8,10,15,0.96);
+  --card-bg:#0f1118;
+  --chip-bg:#161a24;
+  --chip-active-bg:var(--accent);
+  --chip-active-text:#000;
+  --bio-color:#9aa0b8;
+  --tag-bg:#161a24;
+  --note-bg:rgba(212,168,67,0.06);
+  --note-border:rgba(212,168,67,0.18);
+  --note-focus:rgba(212,168,67,0.4);
+  --btn-bg:#161a24;
+  --save-btn-bg:rgba(212,168,67,0.1);
+  --save-btn-border:rgba(212,168,67,0.3);
+  --host-av-bg:#251a00;
+  --it-av-bg:#2a1200;
+  --pl-av-bg:#0a1a2e;
+  --sen-av-bg:#0f1a30;
+  --sen-av-text:#6aa3e0;
+  --nogo-border:rgba(224,85,85,0.4);
+  --nogo-hdr-color:rgba(224,85,85,0.5);
+  --nogo-hdr-line:rgba(224,85,85,0.15);
+  --theme-icon-show-moon:none;
+  --theme-icon-show-sun:flex;
+  --toggle-bg:#161a24;
+  --toggle-border:rgba(255,255,255,0.12);
 }
+
+/* ── LIGHT THEME ── */
+[data-theme="light"] {
+  --bg:#f4f5f8;
+  --bg2:#ffffff;
+  --surface:#ffffff;
+  --surface2:#f0f2f7;
+  --surface3:#e6e9f0;
+  --border:rgba(0,0,0,0.09);
+  --border2:rgba(0,0,0,0.15);
+  --text:#1a1d2e;
+  --text2:#444860;
+  --muted:#8890a8;
+  --accent:#b8872a;
+  --accent-text:#fff;
+  --it:#c94d1a;
+  --pl:#2c6fb5;
+  --green:#1f8f55;
+  --red:#c43030;
+  --nav-bg:rgba(244,245,248,0.97);
+  --card-bg:#ffffff;
+  --chip-bg:#e8eaf2;
+  --chip-active-bg:#1a1d2e;
+  --chip-active-text:#fff;
+  --bio-color:#555b78;
+  --tag-bg:#eaecf4;
+  --note-bg:rgba(184,135,42,0.05);
+  --note-border:rgba(184,135,42,0.2);
+  --note-focus:rgba(184,135,42,0.4);
+  --btn-bg:#eaecf4;
+  --save-btn-bg:rgba(184,135,42,0.1);
+  --save-btn-border:rgba(184,135,42,0.35);
+  --host-av-bg:#fdf3dd;
+  --it-av-bg:#fdeee6;
+  --pl-av-bg:#e6f0fc;
+  --sen-av-bg:#e6f0fc;
+  --sen-av-text:#2c6fb5;
+  --nogo-border:rgba(196,48,48,0.3);
+  --nogo-hdr-color:rgba(196,48,48,0.5);
+  --nogo-hdr-line:rgba(196,48,48,0.12);
+  --theme-icon-show-moon:flex;
+  --theme-icon-show-sun:none;
+  --toggle-bg:#e8eaf2;
+  --toggle-border:rgba(0,0,0,0.12);
+}
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:15px}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;
-  padding-top:var(--safe-top);-webkit-tap-highlight-color:transparent}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'DM Sans',sans-serif;font-weight:300;
+  padding-top:env(safe-area-inset-top,0px);
+  -webkit-tap-highlight-color:transparent;
+  transition:background 0.25s,color 0.25s;
+}
 
+/* ── BANNER ── */
 .banner{width:100%;background:#000;line-height:0;position:relative;overflow:hidden}
 .banner img{width:100%;height:auto;display:block;max-height:200px;object-fit:cover;object-position:center 28%}
-.banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 30%,rgba(8,10,15,0.92) 100%)}
+.banner-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 20%,rgba(8,10,15,0.85) 100%)}
+[data-theme="light"] .banner-overlay{background:linear-gradient(to bottom,transparent 20%,rgba(244,245,248,0.85) 100%)}
 
-.topnav{position:sticky;top:0;z-index:100;background:rgba(8,10,15,0.96);
-  border-bottom:1px solid var(--border);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
-  padding:0.7rem 1rem;padding-top:calc(0.7rem + var(--safe-top))}
+/* ── TOPNAV ── */
+.topnav{
+  position:sticky;top:0;z-index:100;
+  background:var(--nav-bg);
+  border-bottom:1px solid var(--border);
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  padding:0.7rem 1rem;
+  padding-top:calc(0.7rem + env(safe-area-inset-top,0px));
+  transition:background 0.25s,border-color 0.25s;
+}
 .nav-inner{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:0.55rem}
-.nav-top{display:flex;align-items:center;justify-content:space-between}
-.nav-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--text);display:flex;align-items:center;gap:8px}
+.nav-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.nav-title{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--text);display:flex;align-items:center;gap:8px;flex:1}
 .nav-title span{color:var(--accent)}
-.counter{font-size:0.72rem;color:var(--muted)}
+.counter{font-size:0.72rem;color:var(--muted);white-space:nowrap}
+
+/* ── THEME TOGGLE ── */
+.theme-toggle{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--toggle-bg);border:1px solid var(--toggle-border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;transition:all 0.2s;
+  -webkit-tap-highlight-color:transparent;
+}
+.theme-toggle:active{transform:scale(0.9)}
+.theme-toggle svg{width:16px;height:16px;stroke:var(--muted);fill:none;stroke-width:2}
+.icon-moon{display:var(--theme-icon-show-moon)}
+.icon-sun{display:var(--theme-icon-show-sun)}
+
+/* ── SEARCH ── */
 .search-wrap{position:relative}
-.search-wrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:2;pointer-events:none}
-#search{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:10px;
+.search-wrap .search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:2;pointer-events:none}
+#search{
+  width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:10px;
   color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.9rem;
-  padding:0.6rem 0.75rem 0.6rem 2.2rem;outline:none;-webkit-appearance:none;transition:border-color 0.2s}
+  padding:0.6rem 0.75rem 0.6rem 2.2rem;outline:none;-webkit-appearance:none;
+  transition:border-color 0.2s,background 0.25s;
+}
 #search:focus{border-color:var(--accent)}
 #search::placeholder{color:var(--muted)}
+
+/* ── FILTER CHIPS ── */
 .filter-row{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding-bottom:1px}
 .filter-row::-webkit-scrollbar{display:none}
-.fchip{flex-shrink:0;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:600;
+.fchip{
+  flex-shrink:0;font-family:'Syne',sans-serif;font-size:0.68rem;font-weight:600;
   letter-spacing:0.07em;text-transform:uppercase;padding:4px 10px;border-radius:20px;
-  background:var(--surface2);color:var(--muted);border:1px solid var(--border);cursor:pointer;transition:all 0.15s}
-.fchip.active{background:var(--accent);color:#000;border-color:var(--accent)}
+  background:var(--chip-bg);color:var(--muted);border:1px solid var(--border);
+  cursor:pointer;transition:all 0.15s;-webkit-tap-highlight-color:transparent;
+}
+.fchip.active{background:var(--chip-active-bg);color:var(--chip-active-text);border-color:var(--chip-active-bg)}
 
-.main{max-width:640px;margin:0 auto;padding:0.75rem 0.75rem calc(2rem + var(--safe-bottom))}
-.group-hdr{font-family:'Syne',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.14em;
-  text-transform:uppercase;padding:0.9rem 0 0.4rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+/* ── MAIN ── */
+.main{max-width:640px;margin:0 auto;padding:0.75rem 0.75rem calc(2rem + env(safe-area-inset-bottom,0px))}
+
+/* ── GROUP HEADER ── */
+.group-hdr{
+  font-family:'Syne',sans-serif;font-weight:700;font-size:0.72rem;
+  letter-spacing:0.14em;text-transform:uppercase;
+  padding:0.9rem 0 0.4rem;color:var(--muted);
+  display:flex;align-items:center;gap:8px;
+}
 .group-hdr::after{content:'';flex:1;height:1px;background:var(--border)}
-.group-hdr.nogo-hdr{color:rgba(224,85,85,0.5)}
-.group-hdr.nogo-hdr::after{background:rgba(224,85,85,0.15)}
+.group-hdr.nogo-hdr{color:var(--nogo-hdr-color)}
+.group-hdr.nogo-hdr::after{background:var(--nogo-hdr-line)}
 
-/* CARD */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;
-  margin-bottom:0.6rem;overflow:hidden;transition:border-color 0.2s}
-.card:active{transform:scale(0.99)}
+/* ── CARD ── */
+.card{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:14px;
+  margin-bottom:0.6rem;overflow:hidden;
+  transition:border-color 0.2s,background 0.25s,box-shadow 0.2s;
+}
+[data-theme="light"] .card{box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+[data-theme="light"] .card:hover{box-shadow:0 2px 10px rgba(0,0,0,0.1)}
+.card:active{transform:scale(0.995)}
 .card.it{border-left:3px solid var(--it)}
 .card.pl{border-left:3px solid var(--pl)}
 .card.host{border-left:3px solid var(--accent)}
-.card.nogo{opacity:0.55;border-left:3px solid rgba(224,85,85,0.4)}
+.card.nogo{opacity:0.5;border-left:3px solid var(--nogo-border)}
 
 .card-top{display:flex;align-items:flex-start;gap:10px;padding:0.9rem 0.9rem 0;cursor:pointer}
-.av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;flex-shrink:0;border:1.5px solid var(--border)}
-.av-it{background:#2a1200;color:var(--it)}
-.av-pl{background:#0a1a2e;color:var(--pl)}
-.av-host{background:#251a00;color:var(--accent)}
-.av-senetic{background:#0f1a30;color:#6aa3e0}
+
+.av{
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:0.82rem;font-weight:700;
+  flex-shrink:0;border:1.5px solid var(--border);transition:background 0.25s;
+}
+.av-it{background:var(--it-av-bg);color:var(--it)}
+.av-pl{background:var(--pl-av-bg);color:var(--pl)}
+.av-host{background:var(--host-av-bg);color:var(--accent)}
+.av-senetic{background:var(--sen-av-bg);color:var(--sen-av-text)}
+
 .card-name-block{flex:1;min-width:0}
 .card-name{font-family:'Syne',sans-serif;font-weight:700;font-size:0.92rem;color:var(--text);line-height:1.2}
 .card-role{font-size:0.71rem;color:var(--muted);margin-top:2px;line-height:1.4}
 .card-company{font-size:0.76rem;color:var(--accent);margin-top:1px}
 
-.status-go{width:20px;height:20px;flex-shrink:0;margin-top:2px;color:var(--green)}
+.status-go{width:20px;height:20px;flex-shrink:0;margin-top:2px}
 .status-go svg{width:20px;height:20px;stroke:var(--green);fill:none;stroke-width:2}
 .status-no{width:20px;height:20px;flex-shrink:0;margin-top:2px}
 .status-no svg{width:20px;height:20px;stroke:var(--red);fill:none;stroke-width:2}
 
-.expand-icon{width:20px;height:20px;border-radius:50%;background:var(--surface2);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;transition:transform 0.25s}
+.expand-icon{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--surface2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;transition:transform 0.25s,background 0.25s;
+}
 .expand-icon svg{width:10px;height:10px;stroke:var(--muted);fill:none;stroke-width:2.5}
 .card.open .expand-icon{transform:rotate(180deg)}
 
+/* ── ACTION BUTTONS ── */
 .card-actions{display:flex;gap:5px;padding:0.6rem 0.9rem 0;flex-wrap:wrap}
-.action-btn{display:inline-flex;align-items:center;gap:4px;font-size:0.7rem;font-weight:500;
-  padding:4px 9px;border-radius:7px;text-decoration:none;border:1px solid var(--border);
-  background:var(--surface2);color:var(--muted);transition:all 0.15s;cursor:pointer}
+.action-btn{
+  display:inline-flex;align-items:center;gap:4px;font-size:0.7rem;font-weight:500;
+  padding:5px 10px;border-radius:7px;text-decoration:none;
+  border:1px solid var(--border);background:var(--btn-bg);color:var(--muted);
+  transition:all 0.15s;cursor:pointer;
+}
 .action-btn:active{transform:scale(0.96)}
 .action-btn svg{width:11px;height:11px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2}
-.btn-call{color:#4caf7d;border-color:rgba(76,175,125,0.25);background:rgba(76,175,125,0.08)}
-.btn-wa{color:#25D366;border-color:rgba(37,211,102,0.25);background:rgba(37,211,102,0.08)}
-.btn-mail{color:#6aa3e0;border-color:rgba(106,163,224,0.25);background:rgba(106,163,224,0.08)}
-.btn-li{color:#4a8fd6;border-color:rgba(74,143,214,0.25);background:rgba(74,143,214,0.08)}
+.btn-call{color:#27a360;border-color:rgba(39,163,96,0.25);background:rgba(39,163,96,0.07)}
+.btn-wa{color:#18a34a;border-color:rgba(24,163,74,0.25);background:rgba(24,163,74,0.07)}
+.btn-mail{color:var(--pl);border-color:rgba(74,143,214,0.25);background:rgba(74,143,214,0.07)}
+.btn-li{color:#0A66C2;border-color:rgba(10,102,194,0.25);background:rgba(10,102,194,0.07)}
 
+/* ── EXPANDABLE BODY ── */
 .card-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
-.card.open .card-body{max-height:600px}
-.card-bio{font-size:0.8rem;line-height:1.65;color:#9aa0b8;padding:0.75rem 0.9rem 0}
+.card.open .card-body{max-height:700px}
+.card-bio{font-size:0.8rem;line-height:1.65;color:var(--bio-color);padding:0.75rem 0.9rem 0}
 .card-tags{display:flex;flex-wrap:wrap;gap:4px;padding:0.6rem 0.9rem 0.9rem}
-.tag{font-size:0.64rem;font-family:'Syne',sans-serif;font-weight:600;letter-spacing:0.06em;
-  text-transform:uppercase;padding:2px 7px;border-radius:4px;
-  background:var(--surface2);color:var(--muted);border:1px solid var(--border)}
+.tag{
+  font-size:0.64rem;font-family:'Syne',sans-serif;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;padding:2px 7px;border-radius:4px;
+  background:var(--tag-bg);color:var(--muted);border:1px solid var(--border);
+}
 .card-divider{margin:0 0.9rem;border:none;border-top:1px solid var(--border)}
 
+/* ── NOTES ── */
 .notes-section{padding:0.75rem 0.9rem 0.9rem}
-.notes-label{font-size:0.62rem;font-family:'Syne',sans-serif;font-weight:700;letter-spacing:0.1em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:5px;display:flex;align-items:center;gap:6px}
+.notes-label{
+  font-size:0.62rem;font-family:'Syne',sans-serif;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:5px;display:flex;align-items:center;gap:6px;
+}
 .notes-label svg{width:10px;height:10px;stroke:var(--muted);fill:none;stroke-width:2}
 .note-saved-dot{width:5px;height:5px;border-radius:50%;background:var(--green);display:none;flex-shrink:0}
 .note-saved-dot.on{display:block}
-.note-ta{width:100%;background:rgba(212,168,67,0.06);border:1px solid rgba(212,168,67,0.18);
-  border-radius:9px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.82rem;
-  font-weight:300;line-height:1.6;padding:0.65rem 0.75rem;resize:none;outline:none;
-  min-height:72px;-webkit-appearance:none;transition:border-color 0.2s}
-.note-ta:focus{border-color:rgba(212,168,67,0.4)}
+.note-ta{
+  width:100%;background:var(--note-bg);border:1px solid var(--note-border);border-radius:9px;
+  color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:300;
+  line-height:1.6;padding:0.65rem 0.75rem;resize:none;outline:none;
+  min-height:72px;-webkit-appearance:none;transition:border-color 0.2s,background 0.25s;
+}
+.note-ta:focus{border-color:var(--note-focus)}
 .note-ta::placeholder{color:var(--muted);font-style:italic}
 .note-footer{display:flex;align-items:center;justify-content:space-between;margin-top:6px;gap:6px}
 .note-ts{font-size:0.62rem;color:var(--muted)}
 .note-btns{display:flex;gap:5px;align-items:center}
-.note-btn{font-size:0.7rem;padding:4px 10px;border-radius:6px;cursor:pointer;
+.note-btn{
+  font-size:0.7rem;padding:4px 10px;border-radius:6px;cursor:pointer;
   font-family:'DM Sans',sans-serif;border:1px solid var(--border);
-  background:var(--surface2);color:var(--muted);transition:all 0.15s}
-.note-btn.save{background:rgba(212,168,67,0.1);border-color:rgba(212,168,67,0.3);color:var(--accent)}
+  background:var(--btn-bg);color:var(--muted);transition:all 0.15s;
+}
+.note-btn.save{background:var(--save-btn-bg);border-color:var(--save-btn-border);color:var(--accent)}
 .note-fb{font-size:0.68rem;color:var(--green);opacity:0;transition:opacity 0.3s;display:flex;align-items:center;gap:3px}
 .note-fb svg{width:10px;height:10px;stroke:var(--green);fill:none;stroke-width:2.5}
 .note-fb.show{opacity:1}
 
-#toast{position:fixed;bottom:calc(1.25rem + var(--safe-bottom));left:50%;
-  transform:translateX(-50%) translateY(16px);background:var(--surface2);
-  border:1px solid var(--border);border-radius:9px;padding:0.5rem 1rem;
-  font-size:0.78rem;color:var(--text);opacity:0;transition:opacity 0.25s,transform 0.25s;
-  pointer-events:none;z-index:999;white-space:nowrap}
+/* ── TOAST ── */
+#toast{
+  position:fixed;bottom:calc(1.25rem + env(safe-area-inset-bottom,0px));left:50%;
+  transform:translateX(-50%) translateY(16px);
+  background:var(--surface2);border:1px solid var(--border);border-radius:9px;
+  padding:0.5rem 1rem;font-size:0.78rem;color:var(--text);
+  opacity:0;transition:opacity 0.25s,transform 0.25s;
+  pointer-events:none;z-index:999;white-space:nowrap;
+}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .card.hidden{display:none}
 .group-hdr.hidden{display:none}
 .empty{text-align:center;padding:3rem 1rem;color:var(--muted);font-size:0.9rem;display:none}
+@media(min-width:500px){.main{padding:1rem 1.25rem calc(2rem + env(safe-area-inset-bottom,0px))}}
 </style>
 </head>
 <body>
@@ -155,444 +317,27 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     <div class="nav-top">
       <div class="nav-title">Rzym <span>2026</span> · Kontakty</div>
       <span class="counter" id="counter">35 osób</span>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Zmień motyw">
+        <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </div>
     <div class="search-wrap">
-      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       <input type="text" id="search" placeholder="Szukaj po imieniu lub firmie…" autocomplete="off" autocorrect="off" spellcheck="false" oninput="applyFilter()">
     </div>
     <div class="filter-row">
-      <button class="fchip active" data-f="all" onclick="setFilter('all',this)">Wszyscy 35</button>
-      <button class="fchip" data-f="goes" onclick="setFilter('goes',this)">✓ Jadą 27</button>
-      <button class="fchip" data-f="nogo" onclick="setFilter('nogo',this)">✗ Nie jadą 8</button>
-      <button class="fchip" data-f="it" onclick="setFilter('it',this)">🇮🇹 Włosi</button>
-      <button class="fchip" data-f="pl" onclick="setFilter('pl',this)">🇵🇱 Polacy</button>
-      <button class="fchip" data-f="senetic" onclick="setFilter('senetic',this)">Senetic</button>
+      <button class="fchip active" data-f="all"     onclick="setFilter('all',this)">Wszyscy 35</button>
+      <button class="fchip"        data-f="pl"      onclick="setFilter('pl',this)">🇵🇱 Polacy</button>
+      <button class="fchip"        data-f="it"      onclick="setFilter('it',this)">🇮🇹 Włosi</button>
+      <button class="fchip"        data-f="goes"    onclick="setFilter('goes',this)">✓ Jadą 27</button>
+      <button class="fchip"        data-f="nogo"    onclick="setFilter('nogo',this)">✗ Nie jadą 8</button>
+      <button class="fchip"        data-f="senetic" onclick="setFilter('senetic',this)">Senetic</button>
     </div>
   </div>
 </div>
 
 <div class="main">
-  <div class="group-hdr" id="grp-it">🇮🇹 Włosi — jadą</div>
-<div class="card it" data-id="picelli" data-nation="it" data-going="goes" data-s="roberto picelli digioffset srl" data-senetic="0">
-  <div class="card-top" onclick="toggle('picelli')">
-    <div class="av av-it">RP</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Roberto Picelli</div>
-      <div class="card-role">Amministratore Unico</div>
-      <div class="card-company">DIGIOFFSET Srl</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  <div class="card-actions"><a class="action-btn btn-li" href="https://it.linkedin.com/in/roberto-picelli-72978bb3" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
-  <div class="card-body">
-    <div class="card-bio">Właściciel i prezes DIGIOFFSET — firmy z Werony specjalizującej się w serwisowaniu i instalacji maszyn poligraficznych i przemysłowych. Klient Senetic Italia.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span><span class="tag">Verona</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-picelli"></span></div>
-      <textarea class="note-ta" id="ta-picelli" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-picelli"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-picelli"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('picelli')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('picelli')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="mezentseva" data-nation="it" data-going="goes" data-s="evgeniia mezentseva digioffset srl" data-senetic="0">
-  <div class="card-top" onclick="toggle('mezentseva')">
-    <div class="av av-it">EM</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Evgeniia Mezentseva</div>
-      
-      <div class="card-company">DIGIOFFSET Srl</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">Przedstawicielka DIGIOFFSET Srl. Gość z ramienia partnera Senetic Italia.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-mezentseva"></span></div>
-      <textarea class="note-ta" id="ta-mezentseva" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-mezentseva"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-mezentseva"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('mezentseva')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('mezentseva')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="zamporlini" data-nation="it" data-going="goes" data-s="gianluca zamporlini one killer price s.r.l." data-senetic="0">
-  <div class="card-top" onclick="toggle('zamporlini')">
-    <div class="av av-it">GZ</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Gianluca Zamporlini</div>
-      
-      <div class="card-company">One Killer Price S.r.l.</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">One Killer Price to włoski reseller IT z Rzymu, specjalizujący się w rozwiązaniach edukacyjnych i technologicznych. Regularnie organizuje eventy dla partnerów (Lenovo, Google, Ricoh).</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Reseller IT</span><span class="tag">Roma</span><span class="tag">Edu-tech</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-zamporlini"></span></div>
-      <textarea class="note-ta" id="ta-zamporlini" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-zamporlini"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-zamporlini"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('zamporlini')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('zamporlini')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="lagrimino" data-nation="it" data-going="goes" data-s="tiziana lagrimino one killer price s.r.l." data-senetic="0">
-  <div class="card-top" onclick="toggle('lagrimino')">
-    <div class="av av-it">TL</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Tiziana Lagrimino</div>
-      
-      <div class="card-company">One Killer Price S.r.l.</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  <div class="card-actions"><a class="action-btn btn-li" href="https://www.linkedin.com/in/tiziana-lagrimino-85a409159/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
-  <div class="card-body">
-    <div class="card-bio">Pracownica One Killer Price w Rzymie. Firma działa w segmencie rozwiązań IT dla edukacji. Absolwentka Scuola Normale Superiore.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Reseller IT</span><span class="tag">Roma</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-lagrimino"></span></div>
-      <textarea class="note-ta" id="ta-lagrimino" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-lagrimino"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-lagrimino"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('lagrimino')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('lagrimino')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="soma" data-nation="it" data-going="goes" data-s="jacopo somà movinter spa" data-senetic="0">
-  <div class="card-top" onclick="toggle('soma')">
-    <div class="av av-it">JS</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Jacopo Somà</div>
-      
-      <div class="card-company">Movinter SPA</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">Movinter SPA to mediolańska firma specjalizująca się w projektowaniu i produkcji lekkich konstrukcji metalowych dla sektora kolejowego i lokomotywowego. Klient Senetic Italia.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Przemysł</span><span class="tag">Milano</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-soma"></span></div>
-      <textarea class="note-ta" id="ta-soma" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-soma"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-soma"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('soma')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('soma')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="bisceglie" data-nation="it" data-going="goes" data-s="lorenzo bisceglie movinter spa" data-senetic="0">
-  <div class="card-top" onclick="toggle('bisceglie')">
-    <div class="av av-it">LB</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Lorenzo Bisceglie</div>
-      
-      <div class="card-company">Movinter SPA</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">Przedstawiciel Movinter SPA z Mediolanu — producenta komponentów dla przemysłu kolejowego. Gość z ramienia klienta Senetic Italia.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Przemysł</span><span class="tag">Milano</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-bisceglie"></span></div>
-      <textarea class="note-ta" id="ta-bisceglie" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-bisceglie"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-bisceglie"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('bisceglie')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('bisceglie')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="duoccio" data-nation="it" data-going="goes" data-s="alessandro duoccio e-ius tax & legal" data-senetic="0">
-  <div class="card-top" onclick="toggle('duoccio')">
-    <div class="av av-it">AD</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Alessandro Duoccio</div>
-      <div class="card-role">Partner / Avvocato tributarista</div>
-      <div class="card-company">e-IUS Tax & Legal</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  <div class="card-actions"><a class="action-btn btn-call" href="tel:+390689131373"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/390689131373?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-li" href="https://it.linkedin.com/company/e-ius-tax-and-legal" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
-  <div class="card-body">
-    <div class="card-bio">Partner kancelarii e-IUS Tax & Legal z Rzymu — specjalizacja w prawie podatkowym dla grup multinarodowych. Firma doradza włoskim i zagranicznym grupom przemysłowym w zakresie podatków i prawa korporacyjnego.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Prawo podatkowe</span><span class="tag">Roma</span><span class="tag">Tax&Legal</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-duoccio"></span></div>
-      <textarea class="note-ta" id="ta-duoccio" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-duoccio"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-duoccio"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('duoccio')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('duoccio')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="durasco" data-nation="it" data-going="goes" data-s="riccardo durasco business solutions s.r.l." data-senetic="0">
-  <div class="card-top" onclick="toggle('durasco')">
-    <div class="av av-it">RD</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Riccardo Durasco</div>
-      
-      <div class="card-company">Business Solutions S.R.L.</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">Przedstawiciel firmy Business Solutions S.R.L. — klient Senetic Italia. Szczegóły do uzupełnienia.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-durasco"></span></div>
-      <textarea class="note-ta" id="ta-durasco" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-durasco"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-durasco"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('durasco')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('durasco')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="mazza" data-nation="it" data-going="goes" data-s="davide mazza senetic italia srl" data-senetic="1">
-  <div class="card-top" onclick="toggle('mazza')">
-    <div class="av av-senetic">DM</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Davide Mazza</div>
-      <div class="card-role">Country Manager Italy</div>
-      <div class="card-company">Senetic Italia Srl</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  <div class="card-actions"><a class="action-btn btn-call" href="tel:+393293499949"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/393293499949?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:davide.mazza@senetic.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/davidemazzalg2/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
-  <div class="card-body">
-    <div class="card-bio">Country Manager Senetic w Italii. Odpowiada za rozwój rynku włoskiego — sprzedaż B2B, relacje z partnerami i klientami. Absolwent Politechniki Turyńskiej. Wcześniej ZyXEL/Sidin i Ellegi 2 Informatica.</div>
-    <div class="card-tags"><span class="tag">Senetic</span><span class="tag">Włochy</span><span class="tag">Country Manager</span><span class="tag">Turyn</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-mazza"></span></div>
-      <textarea class="note-ta" id="ta-mazza" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-mazza"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-mazza"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('mazza')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('mazza')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="fagnani" data-nation="it" data-going="goes" data-s="silvia fagnani senetic" data-senetic="1">
-  <div class="card-top" onclick="toggle('fagnani')">
-    <div class="av av-senetic">SF</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Silvia Fagnani</div>
-      <div class="card-role">Microsoft Cloud Solution Sales Specialist</div>
-      <div class="card-company">Senetic</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  <div class="card-actions"><a class="action-btn btn-li" href="https://www.linkedin.com/in/silvia-fagnani/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
-  <div class="card-body">
-    <div class="card-bio">Specjalistka ds. sprzedaży rozwiązań Microsoft Cloud w Senetic. Prowadzi webinary dla klientów B2B we Włoszech (M365, OneDrive, Copilot). Aktywna na LinkedIn w tematyce Microsoft 365.</div>
-    <div class="card-tags"><span class="tag">Senetic</span><span class="tag">Włochy</span><span class="tag">Microsoft</span><span class="tag">Cloud</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-fagnani"></span></div>
-      <textarea class="note-ta" id="ta-fagnani" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-fagnani"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-fagnani"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('fagnani')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('fagnani')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="ebraggio" data-nation="it" data-going="goes" data-s="elio braggio 21 srl" data-senetic="0">
-  <div class="card-top" onclick="toggle('ebraggio')">
-    <div class="av av-it">EB</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Elio Braggio</div>
-      
-      <div class="card-company">21 Srl</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">Przedstawiciel firmy 21 Srl — klient Senetic Italia. Szczegóły do uzupełnienia przez Davide Mazzę.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-ebraggio"></span></div>
-      <textarea class="note-ta" id="ta-ebraggio" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-ebraggio"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-ebraggio"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('ebraggio')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('ebraggio')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="lbraggio" data-nation="it" data-going="goes" data-s="lisa braggio 21 srl" data-senetic="0">
-  <div class="card-top" onclick="toggle('lbraggio')">
-    <div class="av av-it">LB</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Lisa Braggio</div>
-      
-      <div class="card-company">21 Srl</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">Przedstawicielka firmy 21 Srl — klient Senetic Italia. Szczegóły do uzupełnienia.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-lbraggio"></span></div>
-      <textarea class="note-ta" id="ta-lbraggio" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-lbraggio"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-lbraggio"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('lbraggio')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('lbraggio')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="ruiffato" data-nation="it" data-going="goes" data-s="patrizia ruiffato enterprise solution" data-senetic="0">
-  <div class="card-top" onclick="toggle('ruiffato')">
-    <div class="av av-it">PR</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Patrizia Ruiffato</div>
-      
-      <div class="card-company">Enterprise Solution</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">Przedstawicielka Enterprise Solution — klient Senetic Italia. Szczegóły do uzupełnienia przez Davide Mazzę.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-ruiffato"></span></div>
-      <textarea class="note-ta" id="ta-ruiffato" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-ruiffato"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-ruiffato"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('ruiffato')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('ruiffato')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card it" data-id="vedova" data-nation="it" data-going="goes" data-s="fabio vedova enterprise solution" data-senetic="0">
-  <div class="card-top" onclick="toggle('vedova')">
-    <div class="av av-it">FV</div>
-    <div class="card-name-block">
-      <div class="card-name">🇮🇹 Fabio Vedova</div>
-      
-      <div class="card-company">Enterprise Solution</div>
-    </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
-  </div>
-  
-  <div class="card-body">
-    <div class="card-bio">Przedstawiciel Enterprise Solution — klient Senetic Italia. Szczegóły do uzupełnienia.</div>
-    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
-    <hr class="card-divider">
-    <div class="notes-section">
-      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-vedova"></span></div>
-      <textarea class="note-ta" id="ta-vedova" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
-      <div class="note-footer">
-        <span class="note-ts" id="ts-vedova"></span>
-        <div class="note-btns">
-          <div class="note-fb" id="fb-vedova"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
-          <button class="note-btn" onclick="clearNote('vedova')">Usuń</button>
-          <button class="note-btn save" onclick="saveNote('vedova')">Zapisz</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
   <div class="group-hdr" id="grp-pl">🇵🇱 Polacy — jadą</div>
 <div class="card host" data-id="bojar" data-nation="pl" data-going="goes" data-s="łukasz bojar senetic s.a." data-senetic="1">
   <div class="card-top" onclick="toggle('bojar')">
@@ -602,7 +347,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Wiceprezes Zarządu (VP)</div>
       <div class="card-company">Senetic S.A.</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48509260756"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48509260756?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:lukasz.bojar@senetic.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/lukasz-bojar/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -632,7 +377,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">CEO / Prezes Zarządu</div>
       <div class="card-company">Senetic S.A.</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-li" href="https://www.linkedin.com/in/marcin-bialozyt/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -662,7 +407,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Prezes Zarządu / CEO</div>
       <div class="card-company">Euvic Solutions S.A.</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48881009009"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48881009009?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:Adam.Bajura@euvic.pl"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://pl.linkedin.com/in/adam-bajura-9a45765" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -692,7 +437,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Prezes Zarządu</div>
       <div class="card-company">ANWIM S.A. (MOYA)</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48501298154"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48501298154?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:rafal.pietrasina@anwim.pl"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://pl.linkedin.com/in/rafa%C5%82-pietrasina-04aa6254" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -722,7 +467,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Marketing i PR Manager</div>
       <div class="card-company">ANWIM S.A. (MOYA)</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48500208309"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48500208309?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:monika.ziemba@anwim.pl"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://pl.linkedin.com/in/monikapasek" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -752,7 +497,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Prezes Zarządu</div>
       <div class="card-company">Syntaco</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48783005113"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48783005113?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:jaroslaw.debski@syntaco.pl"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a></div>
@@ -782,7 +527,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       
       <div class="card-company">Syntaco</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-mail" href="mailto:angelika.pilarska@syntaco.pl"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a></div>
@@ -812,7 +557,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Enterprise Director, Central Eastern Europe</div>
       <div class="card-company">NVIDIA</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-mail" href="mailto:rsioda@nvidia.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/roman-sioda/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -842,7 +587,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Advanced Solution Director</div>
       <div class="card-company">TD SYNNEX Poland</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-mail" href="mailto:marcin.zielinski@tdsynnex.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://pl.linkedin.com/in/marcin-zielinski1" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -872,7 +617,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Country Manager East Europe & CIS</div>
       <div class="card-company">Western Digital</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48601333928"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48601333928?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:marcin.paczko@wdc.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/marcin-paczko-b118a882/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -902,7 +647,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       
       <div class="card-company">Western Digital</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   
@@ -932,7 +677,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Partner Business Manager</div>
       <div class="card-company">Hewlett Packard Enterprise</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48885227388"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48885227388?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:marek.kwiatkowski@hpe.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/kwiatkowskimarek/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -962,7 +707,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Distribution Account Manager</div>
       <div class="card-company">Cisco Systems Poland</div>
     </div>
-    <div class="status-go" title="Jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48601919246"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48601919246?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:kbaczyns@cisco.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/krzysztof-baczy%C5%84ski-501abb31/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -984,6 +729,427 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
     </div>
   </div>
 </div>
+  <div class="group-hdr" id="grp-it">🇮🇹 Włosi — jadą</div>
+<div class="card it" data-id="picelli" data-nation="it" data-going="goes" data-s="roberto picelli digioffset srl" data-senetic="0">
+  <div class="card-top" onclick="toggle('picelli')">
+    <div class="av av-it">RP</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Roberto Picelli</div>
+      <div class="card-role">Amministratore Unico</div>
+      <div class="card-company">DIGIOFFSET Srl</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  <div class="card-actions"><a class="action-btn btn-li" href="https://it.linkedin.com/in/roberto-picelli-72978bb3" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
+  <div class="card-body">
+    <div class="card-bio">Właściciel i prezes DIGIOFFSET — firmy z Werony specjalizującej się w serwisowaniu i instalacji maszyn poligraficznych i przemysłowych. Klient Senetic Italia.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span><span class="tag">Verona</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-picelli"></span></div>
+      <textarea class="note-ta" id="ta-picelli" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-picelli"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-picelli"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('picelli')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('picelli')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="mezentseva" data-nation="it" data-going="goes" data-s="evgeniia mezentseva digioffset srl" data-senetic="0">
+  <div class="card-top" onclick="toggle('mezentseva')">
+    <div class="av av-it">EM</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Evgeniia Mezentseva</div>
+      
+      <div class="card-company">DIGIOFFSET Srl</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">Przedstawicielka DIGIOFFSET Srl. Gość z ramienia partnera Senetic Italia.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-mezentseva"></span></div>
+      <textarea class="note-ta" id="ta-mezentseva" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-mezentseva"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-mezentseva"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('mezentseva')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('mezentseva')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="zamporlini" data-nation="it" data-going="goes" data-s="gianluca zamporlini one killer price s.r.l." data-senetic="0">
+  <div class="card-top" onclick="toggle('zamporlini')">
+    <div class="av av-it">GZ</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Gianluca Zamporlini</div>
+      
+      <div class="card-company">One Killer Price S.r.l.</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">One Killer Price to włoski reseller IT z Rzymu, specjalizujący się w rozwiązaniach edukacyjnych i technologicznych. Regularnie organizuje eventy dla partnerów (Lenovo, Google, Ricoh).</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Reseller IT</span><span class="tag">Roma</span><span class="tag">Edu-tech</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-zamporlini"></span></div>
+      <textarea class="note-ta" id="ta-zamporlini" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-zamporlini"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-zamporlini"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('zamporlini')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('zamporlini')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="lagrimino" data-nation="it" data-going="goes" data-s="tiziana lagrimino one killer price s.r.l." data-senetic="0">
+  <div class="card-top" onclick="toggle('lagrimino')">
+    <div class="av av-it">TL</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Tiziana Lagrimino</div>
+      
+      <div class="card-company">One Killer Price S.r.l.</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  <div class="card-actions"><a class="action-btn btn-li" href="https://www.linkedin.com/in/tiziana-lagrimino-85a409159/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
+  <div class="card-body">
+    <div class="card-bio">Pracownica One Killer Price w Rzymie. Firma działa w segmencie rozwiązań IT dla edukacji. Absolwentka Scuola Normale Superiore.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Reseller IT</span><span class="tag">Roma</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-lagrimino"></span></div>
+      <textarea class="note-ta" id="ta-lagrimino" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-lagrimino"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-lagrimino"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('lagrimino')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('lagrimino')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="soma" data-nation="it" data-going="goes" data-s="jacopo somà movinter spa" data-senetic="0">
+  <div class="card-top" onclick="toggle('soma')">
+    <div class="av av-it">JS</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Jacopo Somà</div>
+      
+      <div class="card-company">Movinter SPA</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">Movinter SPA to mediolańska firma specjalizująca się w projektowaniu i produkcji lekkich konstrukcji metalowych dla sektora kolejowego i lokomotywowego. Klient Senetic Italia.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Przemysł</span><span class="tag">Milano</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-soma"></span></div>
+      <textarea class="note-ta" id="ta-soma" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-soma"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-soma"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('soma')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('soma')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="bisceglie" data-nation="it" data-going="goes" data-s="lorenzo bisceglie movinter spa" data-senetic="0">
+  <div class="card-top" onclick="toggle('bisceglie')">
+    <div class="av av-it">LB</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Lorenzo Bisceglie</div>
+      
+      <div class="card-company">Movinter SPA</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">Przedstawiciel Movinter SPA z Mediolanu — producenta komponentów dla przemysłu kolejowego. Gość z ramienia klienta Senetic Italia.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Przemysł</span><span class="tag">Milano</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-bisceglie"></span></div>
+      <textarea class="note-ta" id="ta-bisceglie" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-bisceglie"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-bisceglie"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('bisceglie')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('bisceglie')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="duoccio" data-nation="it" data-going="goes" data-s="alessandro duoccio e-ius tax & legal" data-senetic="0">
+  <div class="card-top" onclick="toggle('duoccio')">
+    <div class="av av-it">AD</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Alessandro Duoccio</div>
+      <div class="card-role">Partner / Avvocato tributarista</div>
+      <div class="card-company">e-IUS Tax & Legal</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  <div class="card-actions"><a class="action-btn btn-call" href="tel:+390689131373"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/390689131373?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-li" href="https://it.linkedin.com/company/e-ius-tax-and-legal" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
+  <div class="card-body">
+    <div class="card-bio">Partner kancelarii e-IUS Tax & Legal z Rzymu — specjalizacja w prawie podatkowym dla grup multinarodowych. Firma doradza włoskim i zagranicznym grupom przemysłowym w zakresie podatków i prawa korporacyjnego.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Prawo podatkowe</span><span class="tag">Roma</span><span class="tag">Tax&Legal</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-duoccio"></span></div>
+      <textarea class="note-ta" id="ta-duoccio" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-duoccio"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-duoccio"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('duoccio')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('duoccio')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="durasco" data-nation="it" data-going="goes" data-s="riccardo durasco business solutions s.r.l." data-senetic="0">
+  <div class="card-top" onclick="toggle('durasco')">
+    <div class="av av-it">RD</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Riccardo Durasco</div>
+      
+      <div class="card-company">Business Solutions S.R.L.</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">Przedstawiciel firmy Business Solutions S.R.L. — klient Senetic Italia. Szczegóły do uzupełnienia.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-durasco"></span></div>
+      <textarea class="note-ta" id="ta-durasco" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-durasco"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-durasco"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('durasco')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('durasco')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="mazza" data-nation="it" data-going="goes" data-s="davide mazza senetic italia srl" data-senetic="1">
+  <div class="card-top" onclick="toggle('mazza')">
+    <div class="av av-senetic">DM</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Davide Mazza</div>
+      <div class="card-role">Country Manager Italy</div>
+      <div class="card-company">Senetic Italia Srl</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  <div class="card-actions"><a class="action-btn btn-call" href="tel:+393293499949"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/393293499949?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:davide.mazza@senetic.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/davidemazzalg2/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
+  <div class="card-body">
+    <div class="card-bio">Country Manager Senetic w Italii. Odpowiada za rozwój rynku włoskiego — sprzedaż B2B, relacje z partnerami i klientami. Absolwent Politechniki Turyńskiej. Wcześniej ZyXEL/Sidin i Ellegi 2 Informatica.</div>
+    <div class="card-tags"><span class="tag">Senetic</span><span class="tag">Włochy</span><span class="tag">Country Manager</span><span class="tag">Turyn</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-mazza"></span></div>
+      <textarea class="note-ta" id="ta-mazza" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-mazza"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-mazza"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('mazza')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('mazza')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="fagnani" data-nation="it" data-going="goes" data-s="silvia fagnani senetic" data-senetic="1">
+  <div class="card-top" onclick="toggle('fagnani')">
+    <div class="av av-senetic">SF</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Silvia Fagnani</div>
+      <div class="card-role">Microsoft Cloud Solution Sales Specialist</div>
+      <div class="card-company">Senetic</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  <div class="card-actions"><a class="action-btn btn-li" href="https://www.linkedin.com/in/silvia-fagnani/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
+  <div class="card-body">
+    <div class="card-bio">Specjalistka ds. sprzedaży rozwiązań Microsoft Cloud w Senetic. Prowadzi webinary dla klientów B2B we Włoszech (M365, OneDrive, Copilot). Aktywna na LinkedIn w tematyce Microsoft 365.</div>
+    <div class="card-tags"><span class="tag">Senetic</span><span class="tag">Włochy</span><span class="tag">Microsoft</span><span class="tag">Cloud</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-fagnani"></span></div>
+      <textarea class="note-ta" id="ta-fagnani" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-fagnani"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-fagnani"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('fagnani')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('fagnani')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="ebraggio" data-nation="it" data-going="goes" data-s="elio braggio 21 srl" data-senetic="0">
+  <div class="card-top" onclick="toggle('ebraggio')">
+    <div class="av av-it">EB</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Elio Braggio</div>
+      
+      <div class="card-company">21 Srl</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">Przedstawiciel firmy 21 Srl — klient Senetic Italia. Szczegóły do uzupełnienia przez Davide Mazzę.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-ebraggio"></span></div>
+      <textarea class="note-ta" id="ta-ebraggio" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-ebraggio"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-ebraggio"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('ebraggio')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('ebraggio')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="lbraggio" data-nation="it" data-going="goes" data-s="lisa braggio 21 srl" data-senetic="0">
+  <div class="card-top" onclick="toggle('lbraggio')">
+    <div class="av av-it">LB</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Lisa Braggio</div>
+      
+      <div class="card-company">21 Srl</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">Przedstawicielka firmy 21 Srl — klient Senetic Italia. Szczegóły do uzupełnienia.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-lbraggio"></span></div>
+      <textarea class="note-ta" id="ta-lbraggio" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-lbraggio"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-lbraggio"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('lbraggio')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('lbraggio')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="ruiffato" data-nation="it" data-going="goes" data-s="patrizia ruiffato enterprise solution" data-senetic="0">
+  <div class="card-top" onclick="toggle('ruiffato')">
+    <div class="av av-it">PR</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Patrizia Ruiffato</div>
+      
+      <div class="card-company">Enterprise Solution</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">Przedstawicielka Enterprise Solution — klient Senetic Italia. Szczegóły do uzupełnienia przez Davide Mazzę.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-ruiffato"></span></div>
+      <textarea class="note-ta" id="ta-ruiffato" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-ruiffato"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-ruiffato"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('ruiffato')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('ruiffato')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card it" data-id="vedova" data-nation="it" data-going="goes" data-s="fabio vedova enterprise solution" data-senetic="0">
+  <div class="card-top" onclick="toggle('vedova')">
+    <div class="av av-it">FV</div>
+    <div class="card-name-block">
+      <div class="card-name">🇮🇹 Fabio Vedova</div>
+      
+      <div class="card-company">Enterprise Solution</div>
+    </div>
+    <div class="status-go"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  </div>
+  
+  <div class="card-body">
+    <div class="card-bio">Przedstawiciel Enterprise Solution — klient Senetic Italia. Szczegóły do uzupełnienia.</div>
+    <div class="card-tags"><span class="tag">Włochy</span><span class="tag">Klient IT</span></div>
+    <hr class="card-divider">
+    <div class="notes-section">
+      <div class="notes-label"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Notatki<span class="note-saved-dot" id="dot-vedova"></span></div>
+      <textarea class="note-ta" id="ta-vedova" placeholder="Wpisz uwagi, tematy do follow-up…"></textarea>
+      <div class="note-footer">
+        <span class="note-ts" id="ts-vedova"></span>
+        <div class="note-btns">
+          <div class="note-fb" id="fb-vedova"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Zapisano</div>
+          <button class="note-btn" onclick="clearNote('vedova')">Usuń</button>
+          <button class="note-btn save" onclick="saveNote('vedova')">Zapisz</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <div class="group-hdr nogo-hdr" id="grp-nogo">✗ Nie jadą na wyjazd</div>
 <div class="card nogo" data-id="okrasa" data-nation="pl" data-going="nogo" data-s="dariusz okrasa dell technologies" data-senetic="0">
   <div class="card-top" onclick="toggle('okrasa')">
@@ -993,7 +1159,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Senior Channel Sales Manager Poland</div>
       <div class="card-company">Dell Technologies</div>
     </div>
-    <div class="status-no" title="Nie jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+    <div class="status-no"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48608816906"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48608816906?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:Dariusz.Okrasa@Dell.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://pl.linkedin.com/in/dariusz-okrasa-a31a3ba0" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -1023,7 +1189,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Account Manager, Channel Poland</div>
       <div class="card-company">Dell Technologies</div>
     </div>
-    <div class="status-no" title="Nie jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+    <div class="status-no"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48500023931"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48500023931?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:Joanna_Maconko@dell.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/joanna-maconko-36656945/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -1053,7 +1219,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">B2B Channel Sales CE Memory (SEPOL)</div>
       <div class="card-company">Samsung Electronics</div>
     </div>
-    <div class="status-no" title="Nie jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+    <div class="status-no"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48727542541"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48727542541?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:m.szymanik@samsung.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/marcin-szymanik-90201246/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -1083,7 +1249,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Partner Account Manager, Professional Display</div>
       <div class="card-company">Samsung Electronics</div>
     </div>
-    <div class="status-no" title="Nie jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+    <div class="status-no"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48600089836"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48600089836?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:m.warzel@samsung.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://pl.linkedin.com/in/marcin-warzel" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -1113,7 +1279,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Channel Sales Manager, Secure Power Division CEE</div>
       <div class="card-company">APC Schneider Electric</div>
     </div>
-    <div class="status-no" title="Nie jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+    <div class="status-no"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48517137706"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48517137706?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:miroslaw.pisaniec@se.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/miroslawpisaniec/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -1143,7 +1309,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Country Manager Poland & Romania</div>
       <div class="card-company">HPE Aruba Networking</div>
     </div>
-    <div class="status-no" title="Nie jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+    <div class="status-no"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48885202084"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48885202084?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:robert.pio.lachowiecki@hpe.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/robert-lachowiecki/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -1173,7 +1339,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Dyrektor ds. Sprzedaży PQ</div>
       <div class="card-company">Eaton Electric Sp. z o.o.</div>
     </div>
-    <div class="status-no" title="Nie jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+    <div class="status-no"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-call" href="tel:+48694428505"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 013.09 5.18 2 2 0 015.07 3h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>Zadzwoń</a><a class="action-btn btn-wa" href="https://wa.me/48694428505?text=Cze%C5%9B%C4%87%21+Drift+Masters+GP+2026+Rzym"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>WhatsApp</a><a class="action-btn btn-mail" href="mailto:adrianpecyna@eaton.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://www.linkedin.com/in/adrian-pecyna-111b0abb/" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -1203,7 +1369,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
       <div class="card-role">Sales Director Large Enterprise</div>
       <div class="card-company">Lenovo</div>
     </div>
-    <div class="status-no" title="Nie jedzie"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+    <div class="status-no"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
     <div class="expand-icon"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
   </div>
   <div class="card-actions"><a class="action-btn btn-mail" href="mailto:mbobinski@lenovo.com"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>Email</a><a class="action-btn btn-li" href="https://pl.linkedin.com/in/mikolajbobinski" target="_blank"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a></div>
@@ -1230,45 +1396,66 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 <div id="toast"></div>
 
 <script>
+// ── PWA MANIFEST ──
 const iconSVG='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="100" fill="#080a0f"/><path d="M256 80 L420 180 L420 332 L256 432 L92 332 L92 180 Z" fill="none" stroke="#d4a843" stroke-width="18"/><text x="256" y="295" font-family="Georgia" font-size="140" font-weight="bold" fill="#d4a843" text-anchor="middle">R</text></svg>';
 const iconB64='data:image/svg+xml;base64,'+btoa(unescape(encodeURIComponent(iconSVG)));
 const manifest={name:'Drift Masters 2026 — Rzym',short_name:'Rzym 2026',display:'standalone',background_color:'#080a0f',theme_color:'#080a0f',start_url:'.',icons:[{src:iconB64,sizes:'192x192',type:'image/svg+xml'},{src:iconB64,sizes:'512x512',type:'image/svg+xml',purpose:'any maskable'}]};
 document.getElementById('manifest-link').href=URL.createObjectURL(new Blob([JSON.stringify(manifest)],{type:'application/json'}));
 document.getElementById('apple-icon').href=iconB64;
+
+// ── SERVICE WORKER ──
 if('serviceWorker' in navigator){
-  const sw=`const C='rzym2026-v3';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['./'])));self.skipWaiting()});self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));self.clients.claim()});self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>caches.match('./'))))});`;
+  const sw=`const C='rzym2026-v4';self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(['./'])));self.skipWaiting()});self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));self.clients.claim()});self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>caches.match('./'))))});`;
   navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw],{type:'text/javascript'})),{scope:'./'}).catch(()=>{});
 }
 
+// ── THEME TOGGLE ──
+function toggleTheme(){
+  const html=document.documentElement;
+  const isDark=html.dataset.theme==='dark';
+  const next=isDark?'light':'dark';
+  html.dataset.theme=next;
+  document.getElementById('theme-color-meta').content=next==='dark'?'#080a0f':'#f4f5f8';
+  localStorage.setItem('rzym_theme',next);
+}
+// Restore saved theme
+(function(){
+  const saved=localStorage.getItem('rzym_theme');
+  if(saved){document.documentElement.dataset.theme=saved;document.getElementById('theme-color-meta').content=saved==='dark'?'#080a0f':'#f4f5f8';}
+})();
+
+// ── TOGGLE CARD ──
 function toggle(id){document.querySelector('.card[data-id="'+id+'"]').classList.toggle('open')}
 
+// ── FILTER & SEARCH ──
 let curFilter='all';
 function norm(s){return s.toLowerCase().replace(/ą/g,'a').replace(/ć/g,'c').replace(/ę/g,'e').replace(/ł/g,'l').replace(/ń/g,'n').replace(/ó/g,'o').replace(/ś/g,'s').replace(/ź/g,'z').replace(/ż/g,'z')}
 function setFilter(f,btn){curFilter=f;document.querySelectorAll('.fchip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');applyFilter()}
 function applyFilter(){
   const q=norm(document.getElementById('search').value.trim());
   const cards=document.querySelectorAll('.card[data-id]');
-  let vis=0,itV=0,plV=0,nogoV=0;
+  let vis=0,plV=0,itV=0,nogoV=0;
   cards.forEach(c=>{
     let show=true;
+    if(curFilter==='pl'&&(c.dataset.nation!=='pl'||c.dataset.going!=='goes'))show=false;
+    if(curFilter==='it'&&(c.dataset.nation!=='it'||c.dataset.going!=='goes'))show=false;
     if(curFilter==='goes'&&c.dataset.going!=='goes')show=false;
     if(curFilter==='nogo'&&c.dataset.going!=='nogo')show=false;
-    if(curFilter==='it'&&c.dataset.nation!=='it')show=false;
-    if(curFilter==='pl'&&c.dataset.nation!=='pl')show=false;
     if(curFilter==='senetic'&&c.dataset.senetic!=='1')show=false;
     if(q&&!c.dataset.s.includes(q))show=false;
     c.classList.toggle('hidden',!show);
     if(show){vis++;if(c.dataset.going==='nogo')nogoV++;else if(c.dataset.nation==='it')itV++;else plV++;}
   });
   document.getElementById('counter').textContent=vis+(vis===1?' osoba':vis<5?' osoby':' osób');
-  document.getElementById('grp-it').classList.toggle('hidden',itV===0);
   document.getElementById('grp-pl').classList.toggle('hidden',plV===0);
+  document.getElementById('grp-it').classList.toggle('hidden',itV===0);
   document.getElementById('grp-nogo').classList.toggle('hidden',nogoV===0);
   document.getElementById('empty').style.display=vis===0?'block':'none';
 }
 
+// ── NOTES ──
 const NK='rzym2026_notes';
-function loadNotes(){try{return JSON.parse(localStorage.getItem(NK)||'{}')}catch(e){return{}}}
+function loadNotes(){try{return JSON.parse(localStorage.getItem(NK)||'{}')}catch(e){return {}}}
 function saveNotes(n){localStorage.setItem(NK,JSON.stringify(n))}
 function saveNote(id){
   const ta=document.getElementById('ta-'+id);
@@ -1290,6 +1477,8 @@ function clearNote(id){
 }
 const toastEl=document.getElementById('toast');let tt;
 function showToast(msg){toastEl.textContent=msg;toastEl.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>toastEl.classList.remove('show'),2200)}
+
+// ── INIT ──
 (function(){
   const notes=loadNotes();
   Object.entries(notes).forEach(([id,n])=>{
